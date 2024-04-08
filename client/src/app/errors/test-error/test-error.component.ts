@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './test-error.component.css'
 })
 export class TestErrorComponent implements OnInit {
-  baseUrl = "https://localhost:4200/api";
+  baseUrl = "https://localhost:7237/api/";
+  validationErros : string[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -19,7 +20,15 @@ export class TestErrorComponent implements OnInit {
   {
     this.http.get(this.baseUrl+ 'buggy/not-found').subscribe({
       next: response=>console.log(response),
-      error: error=>console.log(error)
+      error: error => {
+        if (error.status === 404) {
+          console.log('Resource not found'); // Handle 404 error
+        } else {
+          error.status
+          console.log(error.status);
+          console.error('An error occurred:', error); // Handle other errors
+        }
+      }
     })
   }
   get400Error()
@@ -46,9 +55,12 @@ export class TestErrorComponent implements OnInit {
   }
   get400ValidationError()
   {
-    this.http.get(this.baseUrl+ 'account/register').subscribe({
+    this.http.post(this.baseUrl+ 'account/register',{}).subscribe({
       next: response=>console.log(response),
-      error: error=>console.log(error)
+      error: error=>{console.log(error);
+        this.validationErros = error;
+      }
+     
     })
   }
 
