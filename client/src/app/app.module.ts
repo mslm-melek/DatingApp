@@ -5,7 +5,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // Import your components, services, etc. here
 import { NavComponent } from './nav/nav.component';
-import { AcountService } from './_services/acount.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +21,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
-
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { AccountService } from './_services/acount.service';
 @NgModule({
     declarations: [
         NavComponent,
@@ -36,7 +36,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
         TestErrorComponent,
         NotFoundComponent,
         ServerErrorComponent,
-        MemberCardComponent
+        MemberCardComponent,
+        MemberEditComponent
     ],
     imports: [
         BrowserAnimationsModule,

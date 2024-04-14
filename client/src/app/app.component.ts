@@ -1,5 +1,5 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { AcountService } from './_services/acount.service';
+import { AccountService } from './_services/acount.service';
 import { User } from './_models/user';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'client';
 
   constructor(
-    private accountService: AcountService,
+    private accountService: AccountService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 

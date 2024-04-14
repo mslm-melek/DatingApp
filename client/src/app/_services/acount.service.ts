@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class AcountService {
+export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
@@ -44,6 +44,7 @@ export class AcountService {
     }
     logout()
     {
+      console.log('removed');
       localStorage.removeItem('user');
       this.currentUserSource.next(null);
     }

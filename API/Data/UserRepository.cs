@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
@@ -61,5 +62,6 @@ namespace API.Data
         {
             _context.Entry(user).State = EntityState.Modified;
         }
+
     }
 }

@@ -5,12 +5,12 @@ import {
    HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';
-import { AcountService } from '../_services/acount.service';
+import { AccountService } from '../_services/acount.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
  
-  constructor(private accountService : AcountService) {
+  constructor(private accountService : AccountService) {
     
     
   }
